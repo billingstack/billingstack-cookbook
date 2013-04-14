@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: billingstack-cookbook
-# Recipe:: central
+# Recipe:: api
 #
 # Copyright 2013, Endre Karlson <endre.karlson@gmail.com>
 #
@@ -20,15 +20,24 @@
 
 include_recipe "billingstack::common"
 
-# Install the billingstack Central package
-package "billingstack-central" do
+# Install the billingstack API package
+package "billingstack-api" do
   action   :upgrade
   version  node['billingstack']['version']
 end
 
-# Enable + Start the billingstack Central service
-service "billingstack-central" do
+# Write out the api-paste configuration file
+template "/etc/billingstack/api-paste.ini" do
+  source  "api-paste.ini.erb"
+  owner   "billingstack"
+  group   "billingstack"
+  mode    0660
+end
+
+# Enable + Start the billingstack API service
+service "billingstack-api" do
   supports    :restart => true, :status => true
   action      [:enable, :start]
   subscribes  :restart, resources(:template => "/etc/billingstack/billingstack.conf")
+  subscribes  :restart, resources(:template => "/etc/billingstack/api-paste.ini")
 end

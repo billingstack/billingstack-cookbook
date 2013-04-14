@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: billingstack-cookbook
-# Recipe:: central
+# Recipe:: repository
 #
 # Copyright 2013, Endre Karlson <endre.karlson@gmail.com>
 #
@@ -18,17 +18,10 @@
 # limitations under the License.
 #
 
-include_recipe "billingstack::common"
-
-# Install the billingstack Central package
-package "billingstack-central" do
-  action   :upgrade
-  version  node['billingstack']['version']
-end
-
-# Enable + Start the billingstack Central service
-service "billingstack-central" do
-  supports    :restart => true, :status => true
-  action      [:enable, :start]
-  subscribes  :restart, resources(:template => "/etc/billingstack/billingstack.conf")
+apt_repository "billingstack-unstable" do
+  uri          "http://ppa.launchpad.net/billingstack/unstable/ubuntu"
+  distribution node['lsb']['codename']
+  components   ["main"]
+  keyserver    "keyserver.ubuntu.com"
+  key          "496F6DC9"
 end
