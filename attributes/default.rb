@@ -75,6 +75,15 @@ default['billingstack']['storage:sqlalchemy']['idle_timeout'] = 3600
 default['billingstack']['storage:sqlalchemy']['max_retries'] = 10
 default['billingstack']['storage:sqlalchemy']['retry_interval'] = 10
 
+# Invoice stage
+default['billingstack']['invoice:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
+default['billingstack']['invoice:sqlalchemy']['connection_debug'] = 0
+default['billingstack']['invoice:sqlalchemy']['connection_trace'] = false
+default['billingstack']['invoice:sqlalchemy']['sqlite_synchronous'] = true
+default['billingstack']['invoice:sqlalchemy']['idle_timeout'] = 3600
+default['billingstack']['invoice:sqlalchemy']['max_retries'] = 10
+default['billingstack']['invoice:sqlalchemy']['retry_interval'] = 10
+
 # Rating Storage
 default['billingstack']['rating:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
 default['billingstack']['rating:sqlalchemy']['connection_debug'] = 0
@@ -92,12 +101,3 @@ default['billingstack']['payment:sqlalchemy']['sqlite_synchronous'] = true
 default['billingstack']['payment:sqlalchemy']['idle_timeout'] = 3600
 default['billingstack']['payment:sqlalchemy']['max_retries'] = 10
 default['billingstack']['payment:sqlalchemy']['retry_interval'] = 10
-
-# Invoice stage
-default['billingstack']['invoice:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
-default['billingstack']['invoice:sqlalchemy']['connection_debug'] = 0
-default['billingstack']['invoice:sqlalchemy']['connection_trace'] = false
-default['billingstack']['invoice:sqlalchemy']['sqlite_synchronous'] = true
-default['billingstack']['invoice:sqlalchemy']['idle_timeout'] = 3600
-default['billingstack']['invoice:sqlalchemy']['max_retries'] = 10
-default['billingstack']['invoice:sqlalchemy']['retry_interval'] = 10
