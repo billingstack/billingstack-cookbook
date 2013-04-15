@@ -18,9 +18,9 @@
 #
 
 apt_repository "billingstack-unstable" do
-  uri          "http://ppa.launchpad.net/billingstack/unstable/ubuntu"
+  uri          "http://cloudistic.me/packages"
   distribution node['lsb']['codename']
   components   ["main"]
-  keyserver    "keyserver.ubuntu.com"
-  key          "496F6DC9"
+  keyserver    "keys.gnupg.net"
+  key          "BCDCA18F"
 end
