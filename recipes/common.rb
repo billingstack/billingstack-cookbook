@@ -1,8 +1,7 @@
-#
 # Cookbook Name:: billingstack-cookbook
 # Recipe:: common
 #
-# Copyright 2013, Mirantis Inc
+# Copyright 2013, Endre Karlson <endre.karlson@gmail.com>
 #
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

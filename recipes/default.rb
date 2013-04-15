@@ -1,4 +1,3 @@
-#
 # Cookbook Name:: billingstack-cookbook
 # Recipe:: default
 #
