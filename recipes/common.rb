@@ -56,6 +56,7 @@ end
 # Install the billingstack-common package
 package "billingstack-common" do
   action   :install
+  options "--force-yes"
   version  node['billingstack']['version']
 end
 

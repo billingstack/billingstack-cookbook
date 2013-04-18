@@ -22,6 +22,7 @@ include_recipe "billingstack::common"
 # Install the billingstack Central package
 package "billingstack-central" do
   action   :upgrade
+  options "--force-yes"
   version  node['billingstack']['version']
 end
 
