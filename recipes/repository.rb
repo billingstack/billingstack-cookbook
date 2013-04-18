@@ -17,6 +17,11 @@
 # limitations under the License.
 #
 
+
+package "ubuntu-cloud-keyring" do
+  action   :install
+end
+
 apt_repository "openstack-grizzly" do
   uri          "http://ppa.launchpad.net/openstack-ubuntu-testing/grizzly-trunk-testing/ubuntu"
   distribution node['lsb']['codename']
