@@ -86,63 +86,65 @@ retry_interval = <%= node['billingstack']['storage:sqlalchemy']['retry_interval'
 
 
 #################################################
-#                Invoice service
+#                Rater service
 #################################################
-[service:invoice]
+[service:rater]
+storage_driver = <%= node['billingstack']['service:rater']['storage_driver'] %>
+
+#-----------------------
+# SQLAlchemy Storage
+#-----------------------
+[rater:sqlalchemy]
+# Database connection string - to configure options for a given implementation
+# like sqlalchemy or other see below
+#database_connection = <%= @billingstack_sqlalchemy_connection_string %>
+connection_debug = <%= node['billingstack']['rater:sqlalchemy']['connection_debug'] %>
+connection_trace = <%= node['billingstack']['rater:sqlalchemy']['connection_trace'] %>
+sqlite_synchronous = <%= node['billingstack']['rater:sqlalchemy']['sqlite_synchronous'] %>
+idle_timeout = <%= node['billingstack']['rater:sqlalchemy']['idle_timeout'] %>
+max_retries = <%= node['billingstack']['rater:sqlalchemy']['max_retries'] %>
+retry_interval = <%= node['billingstack']['rater:sqlalchemy']['retry_interval'] %>
+
+
+#################################################
+#                Biller service
+#################################################
+[service:biller]
 storage_driver = <%= node['billingstack']['service:invoice']['storage_driver'] %>
 
 #-----------------------
 # SQLAlchemy Storage
 #-----------------------
-[invoice:sqlalchemy]
+[biller:sqlalchemy]
 # Database connection string - to configure options for a given implementation
 # like sqlalchemy or other see below
 #database_connection = <%= @billingstack_sqlalchemy_connection_string %>
-connection_debug = <%= node['billingstack']['invoice:sqlalchemy']['connection_debug'] %>
-connection_trace = <%= node['billingstack']['invoice:sqlalchemy']['connection_trace'] %>
-sqlite_synchronous = <%= node['billingstack']['invoice:sqlalchemy']['sqlite_synchronous'] %>
-idle_timeout = <%= node['billingstack']['invoice:sqlalchemy']['idle_timeout'] %>
-max_retries = <%= node['billingstack']['invoice:sqlalchemy']['max_retries'] %>
-retry_interval = <%= node['billingstack']['invoice:sqlalchemy']['retry_interval'] %>
+connection_debug = <%= node['billingstack']['biller:sqlalchemy']['connection_debug'] %>
+connection_trace = <%= node['billingstack']['biller:sqlalchemy']['connection_trace'] %>
+sqlite_synchronous = <%= node['billingstack']['biller:sqlalchemy']['sqlite_synchronous'] %>
+idle_timeout = <%= node['billingstack']['biller:sqlalchemy']['idle_timeout'] %>
+max_retries = <%= node['billingstack']['biller:sqlalchemy']['max_retries'] %>
+retry_interval = <%= node['billingstack']['biller:sqlalchemy']['retry_interval'] %>
 
 
 #################################################
-#                Payment service
+#                Collector service
 #################################################
-[service:invoice]
-storage_driver = <%= node['billingstack']['service:payment']['storage_driver'] %>
+[service:collector]
+storage_driver = <%= node['billingstack']['service:collector']['storage_driver'] %>
 
 #-----------------------
 # SQLAlchemy Storage
 #-----------------------
-[payment:sqlalchemy]
+[collector:sqlalchemy]
 # Database connection string - to configure options for a given implementation
 # like sqlalchemy or other see below
 #database_connection = <%= @billingstack_sqlalchemy_connection_string %>
-connection_debug = <%= node['billingstack']['payment:sqlalchemy']['connection_debug'] %>
-connection_trace = <%= node['billingstack']['payment:sqlalchemy']['connection_trace'] %>
-sqlite_synchronous = <%= node['billingstack']['payment:sqlalchemy']['sqlite_synchronous'] %>
-idle_timeout = <%= node['billingstack']['payment:sqlalchemy']['idle_timeout'] %>
-max_retries = <%= node['billingstack']['payment:sqlalchemy']['max_retries'] %>
-retry_interval = <%= node['billingstack']['payment:sqlalchemy']['retry_interval'] %>
+connection_debug = <%= node['billingstack']['collector:sqlalchemy']['connection_debug'] %>
+connection_trace = <%= node['billingstack']['collector:sqlalchemy']['connection_trace'] %>
+sqlite_synchronous = <%= node['billingstack']['collector:sqlalchemy']['sqlite_synchronous'] %>
+idle_timeout = <%= node['billingstack']['collector:sqlalchemy']['idle_timeout'] %>
+max_retries = <%= node['billingstack']['collector:sqlalchemy']['max_retries'] %>
+retry_interval = <%= node['billingstack']['collector:sqlalchemy']['retry_interval'] %>
 
 
-#################################################
-#                Rating service
-#################################################
-[service:rating]
-storage_driver = <%= node['billingstack']['service:rating']['storage_driver'] %>
-
-#-----------------------
-# SQLAlchemy Storage
-#-----------------------
-[rating:sqlalchemy]
-# Database connection string - to configure options for a given implementation
-# like sqlalchemy or other see below
-#database_connection = <%= @billingstack_sqlalchemy_connection_string %>
-connection_debug = <%= node['billingstack']['rating:sqlalchemy']['connection_debug'] %>
-connection_trace = <%= node['billingstack']['rating:sqlalchemy']['connection_trace'] %>
-sqlite_synchronous = <%= node['billingstack']['rating:sqlalchemy']['sqlite_synchronous'] %>
-idle_timeout = <%= node['billingstack']['rating:sqlalchemy']['idle_timeout'] %>
-max_retries = <%= node['billingstack']['rating:sqlalchemy']['max_retries'] %>
-retry_interval = <%= node['billingstack']['rating:sqlalchemy']['retry_interval'] %>

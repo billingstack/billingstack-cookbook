@@ -55,15 +55,6 @@ default['billingstack']['service:api']['auth_strategy'] = 'noauth'
 # BS [service:central] Configuration
 default['billingstack']['service:central']['storage_driver'] = 'sqlalchemy'
 
-# BS [service:invoice] Configuration
-default['billingstack']['service:invoice']['storage_driver'] = 'sqlalchemy'
-
-# BS [service:payments] Configuration
-default['billingstack']['service:payments']['storage_driver'] = 'sqlalchemy'
-
-# BS [service:rating] Configuration
-default['billingstack']['service:rating']['storage_driver'] = 'sqlalchemy'
-
 # Central storage
 default['billingstack']['storage:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
 default['billingstack']['storage:sqlalchemy']['connection_debug'] = 0
@@ -73,29 +64,38 @@ default['billingstack']['storage:sqlalchemy']['idle_timeout'] = 3600
 default['billingstack']['storage:sqlalchemy']['max_retries'] = 10
 default['billingstack']['storage:sqlalchemy']['retry_interval'] = 10
 
-# Invoice stage
-default['billingstack']['invoice:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
-default['billingstack']['invoice:sqlalchemy']['connection_debug'] = 0
-default['billingstack']['invoice:sqlalchemy']['connection_trace'] = false
-default['billingstack']['invoice:sqlalchemy']['sqlite_synchronous'] = true
-default['billingstack']['invoice:sqlalchemy']['idle_timeout'] = 3600
-default['billingstack']['invoice:sqlalchemy']['max_retries'] = 10
-default['billingstack']['invoice:sqlalchemy']['retry_interval'] = 10
+# BS [service:rater] Configuration
+default['billingstack']['service:rater']['storage_driver'] = 'sqlalchemy'
 
-# Rating Storage
-default['billingstack']['rating:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
-default['billingstack']['rating:sqlalchemy']['connection_debug'] = 0
-default['billingstack']['rating:sqlalchemy']['connection_trace'] = false
-default['billingstack']['rating:sqlalchemy']['sqlite_synchronous'] = true
-default['billingstack']['rating:sqlalchemy']['idle_timeout'] = 3600
-default['billingstack']['rating:sqlalchemy']['max_retries'] = 10
-default['billingstack']['rating:sqlalchemy']['retry_interval'] = 10
+# Rater Storage
+default['billingstack']['rater:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
+default['billingstack']['rater:sqlalchemy']['connection_debug'] = 0
+default['billingstack']['rater:sqlalchemy']['connection_trace'] = false
+default['billingstack']['rater:sqlalchemy']['sqlite_synchronous'] = true
+default['billingstack']['rater:sqlalchemy']['idle_timeout'] = 3600
+default['billingstack']['rater:sqlalchemy']['max_retries'] = 10
+default['billingstack']['rater:sqlalchemy']['retry_interval'] = 10
 
-# Payment storage
-default['billingstack']['payment:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
-default['billingstack']['payment:sqlalchemy']['connection_debug'] = 0
-default['billingstack']['payment:sqlalchemy']['connection_trace'] = false
-default['billingstack']['payment:sqlalchemy']['sqlite_synchronous'] = true
-default['billingstack']['payment:sqlalchemy']['idle_timeout'] = 3600
-default['billingstack']['payment:sqlalchemy']['max_retries'] = 10
-default['billingstack']['payment:sqlalchemy']['retry_interval'] = 10
+# BS [service:biller] Configuration
+default['billingstack']['service:biller']['storage_driver'] = 'sqlalchemy'
+
+# biller stage
+default['billingstack']['biller:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
+default['billingstack']['biller:sqlalchemy']['connection_debug'] = 0
+default['billingstack']['biller:sqlalchemy']['connection_trace'] = false
+default['billingstack']['biller:sqlalchemy']['sqlite_synchronous'] = true
+default['billingstack']['biller:sqlalchemy']['idle_timeout'] = 3600
+default['billingstack']['biller:sqlalchemy']['max_retries'] = 10
+default['billingstack']['biller:sqlalchemy']['retry_interval'] = 10
+
+# BS [service:collector] Configuration
+default['billingstack']['service:collector']['storage_driver'] = 'sqlalchemy'
+
+# Collector storage
+default['billingstack']['collector:sqlalchemy']['database_connection'] = 'sqlite:///$state_path/billingstack.sqlite'
+default['billingstack']['collector:sqlalchemy']['connection_debug'] = 0
+default['billingstack']['collector:sqlalchemy']['connection_trace'] = false
+default['billingstack']['collector:sqlalchemy']['sqlite_synchronous'] = true
+default['billingstack']['collector:sqlalchemy']['idle_timeout'] = 3600
+default['billingstack']['collector:sqlalchemy']['max_retries'] = 10
+default['billingstack']['collector:sqlalchemy']['retry_interval'] = 10
