@@ -17,6 +17,15 @@
 # limitations under the License.
 #
 
+apt_repository "openstack-grizzly" do
+  uri          "http://ppa.launchpad.net/openstack-ubuntu-testing/grizzly-trunk-testing/ubuntu"
+  distribution node['lsb']['codename']
+  components   ["main"]
+  #keyserver    "keys.gnupg.net"
+  #key          "BCDCA18F"
+end
+
+
 apt_repository "billingstack-unstable" do
   uri          "http://cloudistic.me/packages"
   distribution node['lsb']['codename']
