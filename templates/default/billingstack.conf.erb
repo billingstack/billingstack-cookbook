@@ -110,7 +110,7 @@ retry_interval = <%= node['billingstack']['rater:sqlalchemy']['retry_interval'] 
 #                Biller service
 #################################################
 [service:biller]
-storage_driver = <%= node['billingstack']['service:invoice']['storage_driver'] %>
+storage_driver = <%= node['billingstack']['service:biller']['storage_driver'] %>
 
 #-----------------------
 # SQLAlchemy Storage
