@@ -76,7 +76,7 @@ storage_driver = <%= node['billingstack']['service:central']['storage_driver'] %
 [storage:sqlalchemy]
 # Database connection string - to configure options for a given implementation
 # like sqlalchemy or other see below
-#database_connection = <%= @billingstack_sqlalchemy_connection_string %>
+database_connection = <%= @billingstack_sqlalchemy_connection_string %>
 connection_debug = <%= node['billingstack']['storage:sqlalchemy']['connection_debug'] %>
 connection_trace = <%= node['billingstack']['storage:sqlalchemy']['connection_trace'] %>
 sqlite_synchronous = <%= node['billingstack']['storage:sqlalchemy']['sqlite_synchronous'] %>
@@ -97,7 +97,7 @@ storage_driver = <%= node['billingstack']['service:rater']['storage_driver'] %>
 [rater:sqlalchemy]
 # Database connection string - to configure options for a given implementation
 # like sqlalchemy or other see below
-#database_connection = <%= @billingstack_sqlalchemy_connection_string %>
+database_connection = <%= @billingstack_sqlalchemy_connection_string %>
 connection_debug = <%= node['billingstack']['rater:sqlalchemy']['connection_debug'] %>
 connection_trace = <%= node['billingstack']['rater:sqlalchemy']['connection_trace'] %>
 sqlite_synchronous = <%= node['billingstack']['rater:sqlalchemy']['sqlite_synchronous'] %>
@@ -118,7 +118,7 @@ storage_driver = <%= node['billingstack']['service:biller']['storage_driver'] %>
 [biller:sqlalchemy]
 # Database connection string - to configure options for a given implementation
 # like sqlalchemy or other see below
-#database_connection = <%= @billingstack_sqlalchemy_connection_string %>
+database_connection = <%= @billingstack_sqlalchemy_connection_string %>
 connection_debug = <%= node['billingstack']['biller:sqlalchemy']['connection_debug'] %>
 connection_trace = <%= node['billingstack']['biller:sqlalchemy']['connection_trace'] %>
 sqlite_synchronous = <%= node['billingstack']['biller:sqlalchemy']['sqlite_synchronous'] %>
@@ -139,7 +139,7 @@ storage_driver = <%= node['billingstack']['service:collector']['storage_driver']
 [collector:sqlalchemy]
 # Database connection string - to configure options for a given implementation
 # like sqlalchemy or other see below
-#database_connection = <%= @billingstack_sqlalchemy_connection_string %>
+database_connection = <%= @billingstack_sqlalchemy_connection_string %>
 connection_debug = <%= node['billingstack']['collector:sqlalchemy']['connection_debug'] %>
 connection_trace = <%= node['billingstack']['collector:sqlalchemy']['connection_trace'] %>
 sqlite_synchronous = <%= node['billingstack']['collector:sqlalchemy']['sqlite_synchronous'] %>
