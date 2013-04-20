@@ -48,6 +48,6 @@ template "/opt/billingstack-ui/current/app/config.js" do
   mode    0660
 end
 
-link "/opt/billingstack-ui/current" do
-  to "/var/www/billingstack"
+link "/var/www/billingstack"
+  to "/opt/billingstack-ui/current"
 end
