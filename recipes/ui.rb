@@ -29,7 +29,7 @@ package "git" do
   options "--force-yes"
 end
 
-deploy "/var/www/billingstack" do
+deploy "/opt/billingstack-ui" do
   symlink_before_migrate Hash.new
   repo "git://github.com/billingstack/billingstack-ui"
   user "www-data"
@@ -39,8 +39,12 @@ deploy "/var/www/billingstack" do
   scm_provider Chef::Provider::Git
 end
 
+link "/opt/billingstack-ui/current" do
+  to "/var/www/billingstack"
+end
+
 # Write out the api-paste configuration file
-template "/var/www/billingstack/current/app/config.js" do
+template "/opt/billingstack-ui/current/app/config.js" do
   source  "config.js.erb"
   owner   "www-data"
   group   "www-data"
