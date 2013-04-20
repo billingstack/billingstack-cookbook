@@ -30,7 +30,7 @@ package "git" do
 end
 
 deploy "/var/www/billingstack" do
-  symlink_before_migrate nil
+  symlink_before_migrate Hash.new
   repo "git://github.com/billingstack/billingstack-ui"
   user "www-data"
   enable_submodules true
