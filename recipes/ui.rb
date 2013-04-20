@@ -40,7 +40,7 @@ deploy "/var/www/billingstack" do
 end
 
 # Write out the api-paste configuration file
-template "/var/www/billingstack/app/config.js" do
+template "/var/www/billingstack/current/app/config.js" do
   source  "config.js.erb"
   owner   "www-data"
   group   "www-data"
