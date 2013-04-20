@@ -18,6 +18,8 @@ default['billingstack']['version'] = nil
 default['billingstack']['rabbit_search'] = 'recipes:rabbitmq AND chef_environment:#{node.chef_environment}'
 default['billingstack']['mysql_search'] = 'recipes:mysql\:\:server AND chef_environment:#{node.chef_environment}'
 
+default['billingstack']['ui']['endpoint'] = 'http://localhost\\:8080/billingstack-api'
+
 # billingstack [DEFAULT] Configuration
 default['billingstack']['DEFAULT']['verbose'] = true
 default['billingstack']['DEFAULT']['debug'] = false
