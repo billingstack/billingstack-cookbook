@@ -39,10 +39,15 @@ deploy "/opt/billingstack-ui" do
   scm_provider Chef::Provider::Git
 end
 
+
 # Write out the api-paste configuration file
 template "/opt/billingstack-ui/current/app/config.js" do
   source  "config.js.erb"
   owner   "www-data"
   group   "www-data"
   mode    0660
+end
+
+link "/opt/billingstack-ui/current" do
+  to "/var/www/billingstack"
 end
