@@ -23,12 +23,18 @@ package "apache2" do
   options "--force-yes"
 end
 
+
+package "git" do
+  action  :upgrade
+  options "--force-yes"
+end
+
 deploy "/var/www/billingstack" do
-    repo "git://github.com/billingstack/billingstack-ui"
-    user "billingstack"
-    enable_submodules true
-    action :deploy
-    scm_provider Chef::Provider::Git
+  repo "git://github.com/billingstack/billingstack-ui"
+  user "www-data"
+  enable_submodules true
+  action :deploy
+  scm_provider Chef::Provider::Git
 end
 
 # Write out the api-paste configuration file
