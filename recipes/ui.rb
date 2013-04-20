@@ -30,9 +30,11 @@ package "git" do
 end
 
 deploy "/var/www/billingstack" do
+  symlink_before_migrate([])
   repo "git://github.com/billingstack/billingstack-ui"
   user "www-data"
   enable_submodules true
+  migrate false
   action :deploy
   scm_provider Chef::Provider::Git
 end
