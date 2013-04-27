@@ -9,6 +9,11 @@ package "git" do
   options "--force-yes"
 end
 
+group "billingstack" do
+  gid 1500
+end
+
+
 user "billingstack" do
   comment "BS User"
   uid 1500
