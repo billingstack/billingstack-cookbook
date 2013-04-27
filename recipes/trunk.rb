@@ -9,21 +9,8 @@ package "git" do
   options "--force-yes"
 end
 
-group "billingstack" do
-  gid 1500
-end
 
-
-user "billingstack" do
-  comment "BS User"
-  uid 1500
-  gid 1500
-  home "/opt/billingstack"
-  shell "/bin/bash"
-end
-
-
-deploy "/opt/billingstack" do
+deploy "/home/vagrant/billingstack" do
   symlink_before_migrate Hash.new
   repo "git://github.com/billingstack/billingstack"
   user "billingstack"
